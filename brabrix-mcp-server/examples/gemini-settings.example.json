@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "brabrix": {
+      "command": "node",
+      "args": [
+        "/ABSOLUTE/PATH/TO/brabrix-mcp-server/dist/index.js"
+      ],
+      "env": {
+        "BRABRIX_API_URL": "https://api.brabrix.com",
+        "BRABRIX_PROJECT_ID": "ID_DO_PROJETO_AQUI",
+        "BRABRIX_WORKSPACE_ROOT": "/PATH/TO/YOUR/PROJECT/WORKSPACE"
+      }
+    }
+  }
+}

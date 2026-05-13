@@ -1,0 +1,603 @@
+{
+  "name": "brabrix-dev",
+  "displayName": "Brabrix Dev",
+  "description": "Board, backlog and project context from Brabrix Dev inside VS Code.",
+  "version": "0.0.1",
+  "license": "MIT",
+  "publisher": "brabrix",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:brabrix.login",
+    "onCommand:brabrix.logout",
+    "onCommand:brabrix.selectProject",
+    "onCommand:brabrix.refresh",
+    "onCommand:brabrix.generateMarkdownDocs",
+    "onCommand:brabrix.exportWorkflowDocs",
+    "onCommand:brabrix.openProjectInBrowser",
+    "onCommand:brabrix.generateTaskPrompt",
+    "onCommand:brabrix.runPromptInCli",
+    "onCommand:brabrix.linkWorkspace",
+    "onCommand:brabrix.unlinkWorkspace",
+    "onCommand:brabrix.syncWorkspace",
+    "onCommand:brabrix.skills.syncProjectSkills",
+    "onCommand:brabrix.skills.openProjectSkills",
+    "onCommand:brabrix.skills.openProjectRules",
+    "onCommand:brabrix.skills.listProjectSkills",
+    "onCommand:brabrix.skills.refreshTree",
+    "onCommand:brabrix.skills.openSkillInEditor",
+    "onCommand:brabrix.agentTemplates.generate",
+    "onCommand:brabrix.agentTemplates.generateClaude",
+    "onCommand:brabrix.agentTemplates.generateCodex",
+    "onCommand:brabrix.agentTemplates.generateVsCode",
+    "onCommand:brabrix.agentTemplates.generateGemini",
+    "onCommand:brabrix.agentTemplates.generateGeneric",
+    "onCommand:brabrix.openContextFolder",
+    "onCommand:brabrix.openCurrentTaskPrompt",
+    "onCommand:brabrix.selectCurrentTask",
+    "onCommand:brabrix.showSyncStatus",
+    "onView:brabrixProjects",
+    "onView:brabrixBacklog",
+    "onView:brabrixBoard",
+    "onView:brabrixSkills"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "brabrix.login",
+        "title": "Brabrix: Login"
+      },
+      {
+        "command": "brabrix.logout",
+        "title": "Brabrix: Logout"
+      },
+      {
+        "command": "brabrix.linkWorkspace",
+        "title": "Brabrix: Vincular workspace ao projeto"
+      },
+      {
+        "command": "brabrix.unlinkWorkspace",
+        "title": "Brabrix: Desvincular workspace"
+      },
+      {
+        "command": "brabrix.syncWorkspace",
+        "title": "Brabrix: Sincronizar contexto do projeto"
+      },
+      {
+        "command": "brabrix.skills.syncProjectSkills",
+        "title": "Brabrix: Sincronizar Skills & Rules do projeto",
+        "icon": "$(library)"
+      },
+      {
+        "command": "brabrix.skills.openProjectSkills",
+        "title": "Brabrix: Abrir Skills do projeto"
+      },
+      {
+        "command": "brabrix.skills.openProjectRules",
+        "title": "Brabrix: Abrir Rules do projeto"
+      },
+      {
+        "command": "brabrix.skills.listProjectSkills",
+        "title": "Brabrix: Listar Skills & Rules do projeto"
+      },
+      {
+        "command": "brabrix.skills.refreshTree",
+        "title": "Brabrix: Atualizar Skills & Rules",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "brabrix.skills.openSkillInEditor",
+        "title": "Brabrix: Abrir Skill ou Rule no editor"
+      },
+      {
+        "command": "brabrix.agentTemplates.generate",
+        "title": "Brabrix: Gerar quick start para agentes de IA",
+        "icon": "$(rocket)"
+      },
+      {
+        "command": "brabrix.agentTemplates.generateClaude",
+        "title": "Brabrix: Gerar template Claude Code"
+      },
+      {
+        "command": "brabrix.agentTemplates.generateCodex",
+        "title": "Brabrix: Gerar template Codex"
+      },
+      {
+        "command": "brabrix.agentTemplates.generateVsCode",
+        "title": "Brabrix: Gerar template VS Code / Copilot"
+      },
+      {
+        "command": "brabrix.agentTemplates.generateGemini",
+        "title": "Brabrix: Gerar template Gemini CLI"
+      },
+      {
+        "command": "brabrix.agentTemplates.generateGeneric",
+        "title": "Brabrix: Gerar template genérico"
+      },
+      {
+        "command": "brabrix.openContextFolder",
+        "title": "Brabrix: Abrir pasta de contexto"
+      },
+      {
+        "command": "brabrix.openCurrentTaskPrompt",
+        "title": "Brabrix: Abrir prompt atual"
+      },
+      {
+        "command": "brabrix.selectCurrentTask",
+        "title": "Brabrix: Selecionar tarefa atual"
+      },
+      {
+        "command": "brabrix.showSyncStatus",
+        "title": "Brabrix: Ver status de sincronização"
+      },
+      {
+        "command": "brabrix.selectProject",
+        "title": "Brabrix: Selecionar Projeto"
+      },
+      {
+        "command": "brabrix.refresh",
+        "title": "Brabrix: Atualizar",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "brabrix.generateMarkdownDocs",
+        "title": "Brabrix: Gerar arquivos .md do projeto",
+        "icon": "$(markdown)"
+      },
+      {
+        "command": "brabrix.openProjectInBrowser",
+        "title": "Brabrix: Abrir projeto no navegador"
+      },
+      {
+        "command": "brabrix.updateBacklogItemStatus",
+        "title": "Brabrix: Atualizar status",
+        "icon": "$(play-circle)"
+      },
+      {
+        "command": "brabrix.deleteBacklogItem",
+        "title": "Brabrix: Excluir item"
+      },
+      {
+        "command": "brabrix.editLocalProject",
+        "title": "Brabrix: Editar item"
+      },
+      {
+        "command": "brabrix.createBacklogItem",
+        "title": "Brabrix: Criar novo item",
+        "icon": "$(add)"
+      },
+      {
+        "command": "brabrix.showItemDetails",
+        "title": "Brabrix: Ver detalhes do item",
+        "icon": "$(info)"
+      },
+      {
+        "command": "brabrix.exportWorkflowDocs",
+        "title": "Brabrix: Exportar workflow de IA (.md)",
+        "icon": "$(cloud-download)"
+      },
+      {
+        "command": "brabrix.showWorkflowArtifact",
+        "title": "Brabrix: Ver documento do workflow"
+      },
+      {
+        "command": "brabrix.generateTaskPrompt",
+        "title": "Brabrix: Gerar prompt da tarefa"
+      },
+      {
+        "command": "brabrix.copyTaskPrompt",
+        "title": "Brabrix: Copiar prompt da tarefa"
+      },
+      {
+        "command": "brabrix.copySpec",
+        "title": "Brabrix: Copiar Spec Técnica",
+        "icon": "$(copy)"
+      },
+      {
+        "command": "brabrix.saveTaskPrompt",
+        "title": "Brabrix: Salvar prompt da tarefa"
+      },
+      {
+        "command": "brabrix.openTaskPrompt",
+        "title": "Brabrix: Abrir prompt da tarefa"
+      },
+      {
+        "command": "brabrix.runPromptInCli",
+        "title": "Brabrix: Executar prompt em CLI local"
+      },
+      {
+        "command": "brabrix.runPromptWithGemini",
+        "title": "Brabrix: Executar com Gemini CLI"
+      },
+      {
+        "command": "brabrix.runPromptWithClaude",
+        "title": "Brabrix: Executar com Claude Code"
+      },
+      {
+        "command": "brabrix.runPromptWithCodex",
+        "title": "Brabrix: Executar com Codex CLI"
+      },
+      {
+        "command": "brabrix.configureCliCommands",
+        "title": "Brabrix: Configurar comandos de CLI"
+      },
+      {
+        "command": "brabrix.generateSkillsPrompt",
+        "title": "Brabrix: Gerar prompt de skills"
+      },
+      {
+        "command": "brabrix.runSkillsWithGemini",
+        "title": "Brabrix: Criar skills com Gemini CLI"
+      },
+      {
+        "command": "brabrix.runSkillsWithClaude",
+        "title": "Brabrix: Criar skills com Claude Code"
+      },
+      {
+        "command": "brabrix.runSkillsWithCodex",
+        "title": "Brabrix: Criar skills com Codex CLI"
+      },
+      {
+        "command": "brabrix.breakdownStory",
+        "title": "Brabrix: Quebrar História em Tarefas"
+      },
+      {
+        "command": "brabrix.codeReviewTask",
+        "title": "Brabrix: Fazer Code Review da Tarefa"
+      },
+      {
+        "command": "brabrix.generatePrd",
+        "title": "Brabrix: Gerar PRD do Projeto"
+      },
+      {
+        "command": "brabrix.reportBug",
+        "title": "Brabrix: Reportar Bug a partir de Erro"
+      },
+      {
+        "command": "brabrix.finishTaskAndCommit",
+        "title": "Brabrix: Finalizar Tarefa e Commitar"
+      },
+      {
+        "command": "brabrix.mcp.showSetup",
+        "title": "Brabrix: Configurar MCP da Brabrix"
+      },
+      {
+        "command": "brabrix.mcp.copyGeminiConfig",
+        "title": "Brabrix: Copiar configuração MCP para Gemini"
+      },
+      {
+        "command": "brabrix.mcp.copyClaudeCommand",
+        "title": "Brabrix: Copiar comando MCP para Claude"
+      },
+      {
+        "command": "brabrix.mcp.openDocs",
+        "title": "Brabrix: Abrir documentação do MCP"
+      },
+      {
+        "command": "brabrix.mcp.generateConfig",
+        "title": "Brabrix: Gerar Configuração MCP",
+        "icon": "$(rocket)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "brabrix-dev",
+          "title": "Brabrix Dev",
+          "icon": "resources/brabrix.svg"
+        }
+      ]
+    },
+    "views": {
+      "brabrix-dev": [
+        {
+          "id": "brabrixProjects",
+          "name": "Projetos"
+        },
+        {
+          "id": "brabrixBacklog",
+          "name": "Backlog"
+        },
+        {
+          "id": "brabrixBoard",
+          "name": "Board"
+        },
+        {
+          "id": "brabrixSkills",
+          "name": "Skills & Rules"
+        }
+      ]
+    },
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "brabrix.reportBug",
+          "when": "editorHasSelection || editorFocus"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "brabrix.reportBug",
+          "when": "editorHasSelection",
+          "group": "brabrix@1"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "brabrix.exportWorkflowDocs",
+          "when": "view == brabrixProjects",
+          "group": "navigation@1"
+        },
+        {
+          "command": "brabrix.generateMarkdownDocs",
+          "when": "view == brabrixProjects",
+          "group": "navigation@2"
+        },
+        {
+          "command": "brabrix.agentTemplates.generate",
+          "when": "view == brabrixProjects",
+          "group": "navigation@3"
+        },
+        {
+          "command": "brabrix.skills.syncProjectSkills",
+          "when": "view == brabrixProjects",
+          "group": "navigation@4"
+        },
+        {
+          "command": "brabrix.editLocalProject",
+          "when": "view == brabrixProjects",
+          "group": "navigation"
+        },
+        {
+          "command": "brabrix.createBacklogItem",
+          "when": "view == brabrixBacklog || view == brabrixBoard",
+          "group": "navigation"
+        },
+        {
+          "command": "brabrix.refresh",
+          "when": "view == brabrixProjects || view == brabrixBacklog || view == brabrixBoard || view == brabrixSkills",
+          "group": "navigation"
+        },
+        {
+          "command": "brabrix.skills.syncProjectSkills",
+          "when": "view == brabrixSkills",
+          "group": "navigation@1"
+        },
+        {
+          "command": "brabrix.skills.refreshTree",
+          "when": "view == brabrixSkills",
+          "group": "navigation@2"
+        },
+        {
+          "command": "brabrix.skills.listProjectSkills",
+          "when": "view == brabrixSkills",
+          "group": "navigation@3"
+        },
+        {
+          "command": "brabrix.selectProject",
+          "when": "view == brabrixProjects",
+          "group": "navigation"
+        },
+        {
+          "command": "brabrix.mcp.generateConfig",
+          "when": "view == brabrixProjects",
+          "group": "navigation@10"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "brabrix.showItemDetails",
+          "when": "view == brabrixBacklog || view == brabrixBoard",
+          "group": "inline@1"
+        },
+        {
+          "command": "brabrix.updateBacklogItemStatus",
+          "when": "view == brabrixBacklog || view == brabrixBoard",
+          "group": "1_status"
+        },
+        {
+          "command": "brabrix.editBacklogItem",
+          "when": "view == brabrixBacklog || view == brabrixBoard",
+          "group": "1_modification@1"
+        },
+        {
+          "command": "brabrix.deleteBacklogItem",
+          "when": "view == brabrixBacklog || view == brabrixBoard",
+          "group": "1_modification@2"
+        },
+        {
+          "command": "brabrix.generateTaskPrompt",
+          "when": "viewItem =~ /executableItem/",
+          "group": "2_prompt@1"
+        },
+        {
+          "command": "brabrix.copySpec",
+          "when": "viewItem =~ /executableItem/",
+          "group": "2_prompt@1.5"
+        },
+        {
+          "command": "brabrix.breakdownStory",
+          "when": "viewItem =~ /storyItem/",
+          "group": "2_prompt@2"
+        },
+        {
+          "command": "brabrix.codeReviewTask",
+          "when": "viewItem =~ /reviewItem/",
+          "group": "2_prompt@3"
+        },
+        {
+          "command": "brabrix.finishTaskAndCommit",
+          "when": "viewItem =~ /progressItem/",
+          "group": "2_prompt@4"
+        },
+        {
+          "command": "brabrix.runPromptWithGemini",
+          "when": "viewItem =~ /executableItem/",
+          "group": "3_run@1"
+        },
+        {
+          "command": "brabrix.runPromptWithClaude",
+          "when": "viewItem =~ /executableItem/",
+          "group": "3_run@2"
+        },
+        {
+          "command": "brabrix.runPromptWithCodex",
+          "when": "viewItem =~ /executableItem/",
+          "group": "3_run@3"
+        },
+        {
+          "command": "brabrix.generateSkillsPrompt",
+          "when": "viewItem == brabrixProject",
+          "group": "2_prompt@1"
+        },
+        {
+          "command": "brabrix.generatePrd",
+          "when": "viewItem == brabrixProject",
+          "group": "2_prompt@2"
+        },
+        {
+          "command": "brabrix.runSkillsWithGemini",
+          "when": "viewItem == brabrixProject",
+          "group": "3_run@1"
+        },
+        {
+          "command": "brabrix.runSkillsWithClaude",
+          "when": "viewItem == brabrixProject",
+          "group": "3_run@2"
+        },
+        {
+          "command": "brabrix.runSkillsWithCodex",
+          "when": "viewItem == brabrixProject",
+          "group": "3_run@3"
+        },
+        {
+          "command": "brabrix.skills.openSkillInEditor",
+          "when": "viewItem == brabrixSkillItem",
+          "group": "inline@1"
+        },
+        {
+          "command": "brabrix.generateMarkdownDocs",
+          "when": "viewItem == brabrixProject",
+          "group": "1_project@1"
+        },
+        {
+          "command": "brabrix.skills.syncProjectSkills",
+          "when": "viewItem == brabrixProject",
+          "group": "1_project@2"
+        },
+        {
+          "command": "brabrix.agentTemplates.generate",
+          "when": "viewItem == brabrixProject",
+          "group": "1_project@3"
+        },
+        {
+          "command": "brabrix.exportWorkflowDocs",
+          "when": "viewItem == brabrixProject",
+          "group": "1_project@4"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Brabrix Dev",
+      "properties": {
+        "brabrix.apiBaseUrl": {
+          "type": "string",
+          "default": "https://api.brabrix.com",
+          "description": "Base URL da API da Brabrix. Use https://localhost:8080 para validação local."
+        },
+        "brabrix.webBaseUrl": {
+          "type": "string",
+          "default": "https://web.brabrix.com",
+          "description": "URL da aplicação web da Brabrix. Use http://localhost:4173 para validação local."
+        },
+        "brabrix.docsFolder": {
+          "type": "string",
+          "default": ".brabrix",
+          "description": "Pasta onde os arquivos markdown da Brabrix serão gerados."
+        },
+        "brabrix.agent.defaultCli": {
+          "type": "string",
+          "default": "gemini",
+          "enum": ["gemini", "claude", "codex", "custom"],
+          "description": "CLI padrão para execução do prompt."
+        },
+        "brabrix.agent.executionMode": {
+          "type": "string",
+          "default": "askBeforeRun",
+          "enum": ["askBeforeRun", "copyOnly"],
+          "description": "Modo de execução do CLI."
+        },
+        "brabrix.agent.geminiCommand": {
+          "type": "string",
+          "default": "gemini < \"{promptFile}\"",
+          "description": "Comando para executar o Gemini CLI."
+        },
+        "brabrix.agent.claudeCommand": {
+          "type": "string",
+          "default": "claude < \"{promptFile}\"",
+          "description": "Comando para executar o Claude Code."
+        },
+        "brabrix.agent.codexCommand": {
+          "type": "string",
+          "default": "codex < \"{promptFile}\"",
+          "description": "Comando para executar o Codex CLI."
+        },
+        "brabrix.agent.customCommand": {
+          "type": "string",
+          "default": "{command} < \"{promptFile}\"",
+          "description": "Comando customizado para execução."
+        },
+        "brabrix.agent.terminalName": {
+          "type": "string",
+          "default": "Brabrix Dev Agent",
+          "description": "Nome do terminal onde o agente será executado."
+        },
+        "brabrix.agent.showCommandBeforeRun": {
+          "type": "boolean",
+          "default": true,
+          "description": "Mostrar comando no terminal antes de rodar."
+        },
+        "brabrix.agent.executionProfile": {
+          "type": "string",
+          "default": "plan",
+          "enum": [
+            "safe",
+            "plan",
+            "edit",
+            "manual"
+          ],
+          "enumDescriptions": [
+            "Apenas gera/copia prompt. Não executa CLI.",
+            "Pede para o CLI analisar e apresentar plano antes de qualquer alteração.",
+            "Permite que o CLI altere arquivos se as tools de escrita estiverem disponíveis.",
+            "Força o CLI a retornar arquivos/conteúdos em blocos para aplicação manual."
+          ],
+          "description": "Define como a Brabrix orienta o CLI local a executar o prompt."
+        },
+        "brabrix.agent.showExecutionProfileWarning": {
+          "type": "boolean",
+          "default": true,
+          "description": "Exibe aviso sobre o perfil de execução antes de enviar ao CLI."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/node": "18.x",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.1.3"
+  }
+}
