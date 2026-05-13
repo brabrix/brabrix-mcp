@@ -12,7 +12,7 @@ This repository contains the official tools to integrate Brabrix Dev into your d
 ## 📦 Components
 
 ### Brabrix VS Code Extension (`brabrix-dev`)
-Boost your productivity with the Brabrix extension. It allows you to:
+Boost your productivity with the official [Brabrix VS Code Extension](https://marketplace.visualstudio.com/items?itemName=Brabrix.brabrix-dev). It allows you to:
 - Browse and manage project backlog and tasks.
 - Link your local workspace with Brabrix projects.
 - Automatically generate PRDs, Technical Specs, and Agent Templates.

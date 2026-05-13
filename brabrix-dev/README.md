@@ -1,5 +1,9 @@
 # Brabrix Dev - VS Code Extension
 
+Extensão oficial da Brabrix Dev para integrar contexto de projetos, backlog e boards diretamente no VS Code.
+
+[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/Brabrix.brabrix-dev?label=Marketplace)](https://marketplace.visualstudio.com/items?itemName=Brabrix.brabrix-dev)
+
 Extensão oficial da Brabrix Dev para integrar contexto de projetos, backlog e boards diretamente no VS Code, com workflow guiado de IA e trilha Spec-Driven Development (SDD) opcional.
 
 ## Instalação e Uso Local (Modo Desenvolvimento)

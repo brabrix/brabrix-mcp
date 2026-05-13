@@ -9,7 +9,7 @@ Servidor MCP (Model Context Protocol) para integração com a plataforma Brabrix
 Este servidor expõe ferramentas para que agentes de IA possam consultar o contexto de projetos, especificações técnicas, PRDs e backlog da Brabrix Dev.
 
 ### Detecção Automática de Workspace
-O servidor busca automaticamente o arquivo `.brabrix/config.json` no workspace. Se encontrado, ele utiliza o `projectId` e `currentTaskId` definidos pela Extensão VS Code da Brabrix.
+O servidor busca automaticamente o arquivo `.brabrix/config.json` no workspace. Se encontrado, ele utiliza o `projectId` e `currentTaskId` definidos pela [Extensão VS Code da Brabrix](https://marketplace.visualstudio.com/items?itemName=Brabrix.brabrix-dev).
 
 ## Instalação e Build
 
