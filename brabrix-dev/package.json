@@ -2,9 +2,14 @@
   "name": "brabrix-dev",
   "displayName": "Brabrix Dev",
   "description": "Board, backlog and project context from Brabrix Dev inside VS Code.",
-  "version": "0.0.1",
+  "version": "0.0.5",
+  "icon": "resources/icon.png",
   "license": "MIT",
   "publisher": "brabrix",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brabrix/brabrix-mcp.git"
+  },
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -512,7 +517,7 @@
         },
         "brabrix.webBaseUrl": {
           "type": "string",
-          "default": "https://web.brabrix.com",
+          "default": "https://app.brabrix.com",
           "description": "URL da aplicação web da Brabrix. Use http://localhost:4173 para validação local."
         },
         "brabrix.docsFolder": {
@@ -523,13 +528,21 @@
         "brabrix.agent.defaultCli": {
           "type": "string",
           "default": "gemini",
-          "enum": ["gemini", "claude", "codex", "custom"],
+          "enum": [
+            "gemini",
+            "claude",
+            "codex",
+            "custom"
+          ],
           "description": "CLI padrão para execução do prompt."
         },
         "brabrix.agent.executionMode": {
           "type": "string",
           "default": "askBeforeRun",
-          "enum": ["askBeforeRun", "copyOnly"],
+          "enum": [
+            "askBeforeRun",
+            "copyOnly"
+          ],
           "description": "Modo de execução do CLI."
         },
         "brabrix.agent.geminiCommand": {
